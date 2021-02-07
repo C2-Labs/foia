@@ -28,3 +28,8 @@ This site is used for customer demonstration of a Django-based architecture for 
 # Create the God Mode Account
 
 - `python manage.py createsuperuser`
+
+# Hosting 
+
+- Target environment is [Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html) 
+- Backend DB is Postgres in AWS RDS
