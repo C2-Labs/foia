@@ -25,7 +25,11 @@ SECRET_KEY = '5(lac%dp=kchuy&wb6=rrbs7*mfenzz=d^bp678+(%ri6=-0&9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'foia-env.eba-bcxs6mx4.us-west-2.elasticbeanstalk.com',
+    'localhost',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -106,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 
