@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'base' # adds the base app
+    'base', # adds the base app
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -129,4 +130,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+if 'AWS_ACCESS_KEY_ID' in os.environ:
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+
+### Django storages - use in production - Comment out next 2 lines to run locally
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
