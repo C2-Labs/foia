@@ -4,13 +4,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>FOIA Online</title>
+    {% load static %}
     {% comment %} <script src="static/js/uswds-init.min.js"></script> {% endcomment %}
     <script src="{% static 'base/js/uswds-init.min.js' %}"></script>
     {% comment %} <link rel="stylesheet" href="static/css/uswds.min.css" /> {% endcomment %}
     <link rel="stylesheet" href="{% static 'base/css/uswds.min.css' %}" />
   </head>
   <body>
-    {% load static %}
+    {% comment %} {% load static %} {% endcomment %}
     {% block content %}
     {% endblock content %}
     <script src="{% static 'base/js/uswds.min.js' %}"></script>
