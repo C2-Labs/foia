@@ -24,8 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '5(lac%dp=kchuy&wb6=rrbs7*mfenzz=d^bp678+(%ri6=-0&9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'foia-env.eba-bcxs6mx4.us-west-2.elasticbeanstalk.com',
@@ -150,7 +149,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 
 STATIC_URL = '/static/'
 
-
 ### Django storages - use in production - Comment out next 2 lines to run locally
+### Also make sure Debug is set to True above
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
