@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,11 @@ SECRET_KEY = '5(lac%dp=kchuy&wb6=rrbs7*mfenzz=d^bp678+(%ri6=-0&9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'foia-env.eba-bcxs6mx4.us-west-2.elasticbeanstalk.com',
+    'localhost',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -37,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'base' # adds the base app
+    'base',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -106,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 
@@ -117,9 +123,33 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+#     '/var/www/static/',
+# ]
+
+if 'AWS_ACCESS_KEY_ID' in os.environ:
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+
+if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+
+if 'AWS_S3_REGION_NAME' in os.environ:
+    AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
+
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400',
+# }
+
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    '/var/www/static/',
+    BASE_DIR / "static"
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 
 STATIC_URL = '/static/'
+
+### Django storages - use in production - Comment out next 2 lines to run locally
+### Also make sure Debug is set to True above
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
