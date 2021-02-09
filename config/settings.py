@@ -129,9 +129,13 @@ USE_TZ = True
 #     '/var/www/static/',
 # ]
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
+
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 
 if 'AWS_ACCESS_KEY_ID' in os.environ:
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
@@ -142,10 +146,6 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
 
 ### Django storages - use in production - Comment out next 2 lines to run locally
 ### OLD - Regular storage
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-### Django S3 storage - use in production - Comment out next 2 lines to run locally
-# DEFAULT_FILE_STORAGE = 'django_s3_storage.storage.S3Storage'
-# STATICFILES_STORAGE = 'django_s3_storage.storage.StaticS3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
