@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>FOIA Online</title>
     {% comment %} <script src="static/js/uswds-init.min.js"></script> {% endcomment %}
-    <script src="{% static 'js/uswds-init.min.js' %}"></script>
+    <script src="{% static 'base/js/uswds-init.min.js' %}"></script>
     {% comment %} <link rel="stylesheet" href="static/css/uswds.min.css" /> {% endcomment %}
-    <link rel="stylesheet" href="{% static 'css/uswds.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'base/css/uswds.min.css' %}" />
   </head>
   <body>
     {% load static %}
     {% block content %}
     {% endblock content %}
-    <script src="{% static 'js/uswds.min.js' %}"></script>
+    <script src="{% static 'base/js/uswds.min.js' %}"></script>
   </body>
 </html>
