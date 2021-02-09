@@ -5,4 +5,3 @@
 # !.elasticbeanstalk/*.global.yml
 assets/*
 *.pyc 
-db.sqlite3
