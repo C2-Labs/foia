@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '5(lac%dp=kchuy&wb6=rrbs7*mfenzz=d^bp678+(%ri6=-0&9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'foia-env.eba-bcxs6mx4.us-west-2.elasticbeanstalk.com',
@@ -44,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base',
     'storages'
-    # 'django_s3_storage'
 ]
 
 MIDDLEWARE = [
@@ -141,10 +141,6 @@ if 'AWS_S3_REGION_NAME' in os.environ:
 
 # AWS_S3_OBJECT_PARAMETERS = {
 #     'CacheControl': 'max-age=86400',
-# }
-
-# AWS_HEADERS = {
-#     'Access-Control-Allow-Origin': '*'
 # }
 
 STATICFILES_DIRS = [
