@@ -8,6 +8,7 @@ This site is used for customer demonstration of a Django-based architecture for 
 - Django - `pipenv install django~=3.1.6`
 - pipenv
 - git
+- awscli
 - ebcli
     - Install instructions for Mac:
 
@@ -62,7 +63,14 @@ After testing and ready for deployment, do the following:
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     ```
-
+- Create AWS credentials to login
+    - Console
+    - Click on your username
+    - My Security Credentials
+    - Create Access Key
+- Update credentials with AWS CLI
+    - `aws configure` OR
+    - Update your `~/.aws/credentials` file
 - Commit your code locally (you don't have to push, but you *DO* have to commit)
 - Run `eb deploy`. This will take 5+ minutes to deploy to AWS. This deploy is doing the following:
     - Copying files to the beanstalk bucket
