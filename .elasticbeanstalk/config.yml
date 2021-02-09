@@ -2,6 +2,9 @@ branch-defaults:
   cdt:
     environment: foia-env
     group_suffix: null
+  master:
+    environment: foia-env
+    group_suffix: null
 global:
   application_name: foia
   branch: null
