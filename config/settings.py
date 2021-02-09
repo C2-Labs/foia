@@ -142,8 +142,8 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
 
 ### Django storages - use in production - Comment out next 2 lines to run locally
 ### OLD - Regular storage
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 ### Django S3 storage - use in production - Comment out next 2 lines to run locally
 # DEFAULT_FILE_STORAGE = 'django_s3_storage.storage.S3Storage'
